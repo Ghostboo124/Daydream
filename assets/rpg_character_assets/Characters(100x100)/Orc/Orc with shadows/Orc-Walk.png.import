@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btmhgfhhrmbr8"
-path="res://.godot/imported/Orc-Walk.png-c5b0bea734fd19b793c4d581c1f3ffca.ctex"
+path="res://.godot/imported/Orc-Walk.png-7d438aef7e730537115b6a0ac7182d1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc with shadows/Orc-Walk.png"
-dest_files=["res://.godot/imported/Orc-Walk.png-c5b0bea734fd19b793c4d581c1f3ffca.ctex"]
+source_file="res://assets/rpg_character_assets/Characters(100x100)/Orc/Orc with shadows/Orc-Walk.png"
+dest_files=["res://.godot/imported/Orc-Walk.png-7d438aef7e730537115b6a0ac7182d1b.ctex"]
 
 [params]
 

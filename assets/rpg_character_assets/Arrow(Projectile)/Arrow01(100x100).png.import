@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgct3s0nuq2au"
-path="res://.godot/imported/Arrow01(100x100).png-0734d2ecaff00ff83c10c9b87a0ae255.ctex"
+path="res://.godot/imported/Arrow01(100x100).png-0c687903ac453de85754d70d3a3e86be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Arrow(Projectile)/Arrow01(100x100).png"
-dest_files=["res://.godot/imported/Arrow01(100x100).png-0734d2ecaff00ff83c10c9b87a0ae255.ctex"]
+source_file="res://assets/rpg_character_assets/Arrow(Projectile)/Arrow01(100x100).png"
+dest_files=["res://.godot/imported/Arrow01(100x100).png-0c687903ac453de85754d70d3a3e86be.ctex"]
 
 [params]
 

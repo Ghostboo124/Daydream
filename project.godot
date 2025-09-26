@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Daydream"
+run/main_scene="uid://bktdsjep7adey"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [rendering]
 
-renderer/rendering_method="forward_plus"
+textures/canvas_textures/default_texture_filter=0

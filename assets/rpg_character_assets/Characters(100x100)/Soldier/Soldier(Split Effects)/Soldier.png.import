@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8i38bypwbg8n"
-path="res://.godot/imported/Soldier.png-56bf4d6c8f5378b53a10dde6c2110e5d.ctex"
+path="res://.godot/imported/Soldier.png-ac89ddad296450a8b9f0b453e6ef930d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier(Split Effects)/Soldier.png"
-dest_files=["res://.godot/imported/Soldier.png-56bf4d6c8f5378b53a10dde6c2110e5d.ctex"]
+source_file="res://assets/rpg_character_assets/Characters(100x100)/Soldier/Soldier(Split Effects)/Soldier.png"
+dest_files=["res://.godot/imported/Soldier.png-ac89ddad296450a8b9f0b453e6ef930d.ctex"]
 
 [params]
 

@@ -1,5 +1,12 @@
-[gd_scene format=3 uid="uid://bktdsjep7adey"]
+[gd_scene load_steps=2 format=3 uid="uid://bcrev62qwch8s"]
+
+[ext_resource type="Texture2D" uid="uid://c28l7qf3gvidx" path="res://assets/stringstar_assets/example.png" id="1_bkp1e"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BackgroundR" type="TextureRect" parent="."]
+offset_left = -931.0
+offset_top = -581.0
+offset_right = 797.0
+offset_bottom = 499.0
+texture = ExtResource("1_bkp1e")

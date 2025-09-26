@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bohtty1x7dx4v"
-path="res://.godot/imported/Orc-Idle.png-808336ba792c2183db53287d9ccbff25.ctex"
+path="res://.godot/imported/Orc-Idle.png-e32097343b2764e61c8f7e77986ce149.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc/Orc-Idle.png"
-dest_files=["res://.godot/imported/Orc-Idle.png-808336ba792c2183db53287d9ccbff25.ctex"]
+source_file="res://assets/rpg_character_assets/Characters(100x100)/Orc/Orc/Orc-Idle.png"
+dest_files=["res://.godot/imported/Orc-Idle.png-e32097343b2764e61c8f7e77986ce149.ctex"]
 
 [params]
 

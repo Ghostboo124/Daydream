@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7vhgkqfkdqsx"
-path="res://.godot/imported/Soldier-Attack03.png-b110c59ce937a1642b081a4e46cc575c.ctex"
+uid="uid://bm8gtnnx6y7q7"
+path="res://.godot/imported/background_1.png-4450505273406ef4ba3a2353005a7934.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rpg_character_assets/Characters(100x100)/Soldier/Soldier with shadows/Soldier-Attack03.png"
-dest_files=["res://.godot/imported/Soldier-Attack03.png-b110c59ce937a1642b081a4e46cc575c.ctex"]
+source_file="res://assets/stringstar_assets/background_1.png"
+dest_files=["res://.godot/imported/background_1.png-4450505273406ef4ba3a2353005a7934.ctex"]
 
 [params]
 

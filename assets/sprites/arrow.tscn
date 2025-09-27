@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbelgfghc8ean"]
+
+[ext_resource type="Texture2D" uid="uid://dgct3s0nuq2au" path="res://assets/images/rpg_character_assets/Arrow(Projectile)/Arrow01(100x100).png" id="1_h5sj1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nlc35"]
+radius = 4.0
+height = 18.0
+
+[node name="Arrow" type="Node2D"]
+
+[node name="Arrow" type="RigidBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_nlc35")
+
+[node name="Sprite2D" type="Sprite2D" parent="Arrow"]
+texture = ExtResource("1_h5sj1")

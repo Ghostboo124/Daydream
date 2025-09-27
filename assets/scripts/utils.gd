@@ -9,3 +9,5 @@ static func _load_config() -> ConfigFile:
 	config.load(config_path)
 	
 	return config
+
+static var config: ConfigFile = _load_config() # Loads Config

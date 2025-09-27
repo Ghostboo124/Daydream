@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmt3hyggmhqsf"]
+[gd_scene load_steps=14 format=3 uid="uid://u030fibarjht"]
 
 [ext_resource type="Texture2D" uid="uid://ceg31kiqtq1vx" path="res://assets/images/dino_chars/aseprite/DinoSprites.png" id="1_46mxm"]
 
@@ -99,17 +99,14 @@ animations = [{
 radius = 4.5
 height = 14.0
 
-[node name="Dino" type="Node2D"]
+[node name="Dino" type="Area2D"]
 
-[node name="DinoBody" type="RigidBody2D" parent="."]
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DinoBody"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_06bqo")
 animation = &"walk"
 frame_progress = 0.2284153
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DinoBody"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_46mxm")

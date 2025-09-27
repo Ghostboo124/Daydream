@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://crt8lilaeo26m"]
+[gd_scene load_steps=50 format=3 uid="uid://dkmy815tjcjpn"]
 
 [ext_resource type="Texture2D" uid="uid://c7vhgkqfkdqsx" path="res://assets/images/rpg_character_assets/Characters(100x100)/Soldier/Soldier with shadows/Soldier-Attack03.png" id="1_wjgcu"]
 [ext_resource type="Texture2D" uid="uid://b4hco2fjn852o" path="res://assets/images/rpg_character_assets/Characters(100x100)/Soldier/Soldier with shadows/Soldier-Attack02.png" id="2_cocl7"]
@@ -177,7 +177,7 @@ region = Rect2(600, 100, 100, 100)
 atlas = ExtResource("4_t3r5c")
 region = Rect2(700, 100, 100, 100)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_13w7m"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxxxl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -344,20 +344,16 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wjgcu"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_odyry"]
 radius = 3.0
 height = 16.0
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Area2D"]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-metadata/_edit_group_ = true
-
-[node name="PlayerSprite" type="AnimatedSprite2D" parent="RigidBody2D"]
-sprite_frames = SubResource("SpriteFrames_13w7m")
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cxxxl")
 animation = &"idle"
-frame_progress = 0.93014914
 
-[node name="PlayerCollision" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
-shape = SubResource("CapsuleShape2D_wjgcu")
+shape = SubResource("CapsuleShape2D_odyry")

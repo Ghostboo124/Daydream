@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://b86tlqrmib5sj"]
+[gd_scene load_steps=83 format=3 uid="uid://v8c32wklrnw3"]
 
 [ext_resource type="Texture2D" uid="uid://3x7vp5jjb34f" path="res://assets/images/little_axiom/Attack 1.png" id="1_n0exr"]
 [ext_resource type="Texture2D" uid="uid://br3qqhc6b7lnx" path="res://assets/images/little_axiom/Attack 2.png" id="1_wrfuk"]
@@ -561,16 +561,13 @@ animations = [{
 radius = 6.0
 height = 18.0
 
-[node name="Axiom" type="Node2D"]
+[node name="Axiom" type="Area2D"]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3mt1f")
 animation = &"hurt"
 frame_progress = 0.2557977
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CapsuleShape2D_tyosp")

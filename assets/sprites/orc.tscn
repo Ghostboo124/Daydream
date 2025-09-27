@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c6opc7543h5nl"]
+[gd_scene load_steps=38 format=3 uid="uid://bqj5phljxc6ep"]
 
 [ext_resource type="Texture2D" uid="uid://byygn6n8xboe8" path="res://assets/images/rpg_character_assets/Characters(100x100)/Orc/Orc with shadows/Orc.png" id="1_jhbpf"]
 
@@ -277,18 +277,12 @@ animations = [{
 radius = 6.0
 height = 18.0
 
-[node name="Orc" type="Node2D"]
+[node name="Orc" type="Area2D"]
 
-[node name="OrcBody" type="RigidBody2D" parent="."]
-position = Vector2(-1, 0)
-collision_layer = 3
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="OrcSprite" type="AnimatedSprite2D" parent="OrcBody"]
+[node name="OrcSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lm2rx")
 animation = &"attack_overhead"
 
-[node name="OrcCollision" type="CollisionShape2D" parent="OrcBody"]
+[node name="OrcCollision" type="CollisionShape2D" parent="."]
 position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_of86n")

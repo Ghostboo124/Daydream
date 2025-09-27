@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://cglov6eujlkyq"]
+
+[ext_resource type="Texture2D" uid="uid://c28l7qf3gvidx" path="res://assets/images/stringstar_assets/example.png" id="1_wfag3"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BackgroundLeft" type="Node2D" parent="."]
+position = Vector2(0, -3)
+
+[node name="sprite" type="Sprite2D" parent="BackgroundLeft"]
+texture = ExtResource("1_wfag3")
+
+[node name="hitbox" type="StaticBody2D" parent="BackgroundLeft"]
+
+[node name="ground" type="CollisionPolygon2D" parent="BackgroundLeft/hitbox"]
+polygon = PackedVector2Array(-861, 131, -392, 129, -399, 155, -566, 160, -566, 400, -194, 417, -198, 492, 70, 502, 127, 398, 327, 386, 459, 365, 658, 381, 747, 400, 858, 405, 860, 535, -870, 537)
+
+[node name="skyisland" type="CollisionPolygon2D" parent="BackgroundLeft/hitbox"]
+polygon = PackedVector2Array(-481, -258, -170, -262, -156, -310, -144, -364, -81, -378, -62, -333, -55, -305, -26, -307, -7, -279, 2, -251, 2, -67, -286, -64, -290, -227, -472, -222)
+
+[node name="BackgroundRight" type="Node2D" parent="."]
+position = Vector2(1728, 0)
+
+[node name="sprite" type="Sprite2D" parent="BackgroundRight"]
+texture = ExtResource("1_wfag3")
+flip_h = true
+
+[node name="hitbox" type="StaticBody2D" parent="BackgroundRight"]
+
+[node name="ground" type="CollisionPolygon2D" parent="BackgroundRight/hitbox"]
+polygon = PackedVector2Array(-859, 396, -724, 410, -549, 355, -454, 359, -304, 388, -134, 406, -68, 501, 182, 507, 197, 421, 544, 421, 583, 417, 583, 162, 398, 156, 382, 133, 870, 131, 862, 544, -871, 536)
+
+[node name="skyisland" type="CollisionPolygon2D" parent="BackgroundRight/hitbox"]
+polygon = PackedVector2Array(-7, -68, -7, -265, 34, -267, 14, -327, 36, -331, 57, -325, 69, -346, 86, -378, 110, -378, 129, -364, 147, -335, 168, -278, 188, -263, 476, -255, 478, -228, 310, -222, 289, -62)

@@ -9,4 +9,3 @@ var screen_size
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
-	

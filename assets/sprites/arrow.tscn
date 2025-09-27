@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dbtjkvoojhyw6"]
 
-[ext_resource type="Texture2D" uid="uid://dgct3s0nuq2au" path="res://assets/images/rpg_character_assets/Arrow(Projectile)/Arrow01(100x100).png" id="1_h5sj1"]
+[ext_resource type="Texture2D" uid="uid://dfl2h6hf6k1bl" path="res://assets/images/Arrow.png" id="1_h5sj1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nlc35"]
 radius = 3.1999998

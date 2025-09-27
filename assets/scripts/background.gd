@@ -26,4 +26,4 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	base_x = bg.global_position.x
 	current_x = 0
-	width = bg.texture.get_width()
+	#width = bg.texture.get_width()

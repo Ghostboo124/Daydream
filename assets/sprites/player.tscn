@@ -1,18 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq85wiy7ij0vl"]
+[gd_scene load_steps=3 format=3 uid="uid://dq85wiy7ij0vl"]
 
 [ext_resource type="Script" uid="uid://ddo84lhl2av7m" path="res://assets/scripts/player.gd" id="1_olike"]
-[ext_resource type="Texture2D" uid="uid://bw32im8l8hbij" path="res://assets/images/rpg_character_assets/Characters(100x100)/Soldier/Soldier with shadows/Soldier.png" id="4_t3r5c"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_olike"]
-radius = 29.0
-height = 126.0
+[ext_resource type="Texture2D" uid="uid://bsdrw0yyj33rb" path="res://assets/images/Soldier.png" id="4_t3r5c"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_olike")
-
-[node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -24)
-shape = SubResource("CapsuleShape2D_olike")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)

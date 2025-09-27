@@ -13,8 +13,17 @@ config_version=5
 config/name="Daydream"
 run/main_scene="uid://bktdsjep7adey"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="Daydream"
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+
+[xr]
+
+openxr/show_image=true

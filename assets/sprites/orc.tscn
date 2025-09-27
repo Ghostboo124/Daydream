@@ -274,14 +274,16 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_of86n"]
-radius = 6.0
-height = 18.0
+radius = 43.0
+height = 144.0
 
 [node name="Orc" type="Area2D"]
 
 [node name="OrcSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_lm2rx")
-animation = &"attack_overhead"
+animation = &"idle"
+frame_progress = 0.5268201
 
 [node name="OrcCollision" type="CollisionShape2D" parent="."]
 position = Vector2(1, -1)

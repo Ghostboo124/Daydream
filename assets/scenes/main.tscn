@@ -1,13 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkvh23hjx35wu"]
+[gd_scene load_steps=7 format=3 uid="uid://bkvh23hjx35wu"]
 
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://crt8lilaeo26m" path="res://assets/sprites/player.tscn" id="1_mr7gh"]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_mr7gh")]
-=======
 [ext_resource type="PackedScene" uid="uid://cglov6eujlkyq" path="res://assets/scenes/background.tscn" id="1_mr7gh"]
+[ext_resource type="PackedScene" uid="uid://dkmy815tjcjpn" path="res://assets/sprites/player.tscn" id="2_kpi06"]
+[ext_resource type="PackedScene" uid="uid://dbtjkvoojhyw6" path="res://assets/sprites/arrow.tscn" id="3_vesw4"]
+[ext_resource type="PackedScene" uid="uid://u030fibarjht" path="res://assets/sprites/dino.tscn" id="4_xplbd"]
+[ext_resource type="PackedScene" uid="uid://bqj5phljxc6ep" path="res://assets/sprites/orc.tscn" id="5_6rsl6"]
+[ext_resource type="PackedScene" uid="uid://v8c32wklrnw3" path="res://assets/sprites/axiom.tscn" id="6_p5d64"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -15,4 +13,17 @@
 zoom = Vector2(1.2, 1.2)
 
 [node name="Background" parent="." instance=ExtResource("1_mr7gh")]
->>>>>>> c2cc6e7b91887929a7b10e01aebe6095ca2b7ea4
+
+[node name="Player" parent="." instance=ExtResource("2_kpi06")]
+
+[node name="Arrow" parent="Player" instance=ExtResource("3_vesw4")]
+visible = false
+
+[node name="Dino" parent="." instance=ExtResource("4_xplbd")]
+visible = false
+
+[node name="Orc" parent="." instance=ExtResource("5_6rsl6")]
+visible = false
+
+[node name="Axiom" parent="." instance=ExtResource("6_p5d64")]
+visible = false

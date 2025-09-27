@@ -558,16 +558,17 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tyosp"]
-radius = 6.0
-height = 18.0
+radius = 51.0
+height = 170.0
 
 [node name="Axiom" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_3mt1f")
-animation = &"hurt"
-frame_progress = 0.2557977
+animation = &"idle"
+frame_progress = 0.5030569
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_tyosp")

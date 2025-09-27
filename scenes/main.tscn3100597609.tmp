@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bktdsjep7adey"]
+
+[ext_resource type="PackedScene" uid="uid://bcrev62qwch8s" path="res://scenes/background.tscn" id="1_o5qli"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ScrollingBackground" parent="." instance=ExtResource("1_o5qli")]
+
+[node name="BackgroundCamera" type="Camera2D" parent="."]
+position = Vector2(-95, 2)
+zoom = Vector2(0.6, 0.6)

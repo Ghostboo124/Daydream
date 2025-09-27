@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcrev62qwch8s"]
+
+[ext_resource type="Texture2D" uid="uid://c28l7qf3gvidx" path="res://assets/stringstar_assets/example.png" id="1_bkp1e"]
+[ext_resource type="Script" uid="uid://chqh6hvgqep55" path="res://scripts/scrolling_background.gd" id="2_y0upk"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BackgroundL" type="Sprite2D" parent="."]
+texture = ExtResource("1_bkp1e")
+script = ExtResource("2_y0upk")
+
+[node name="BackgroundR" type="Sprite2D" parent="."]
+position = Vector2(-1700, 0)
+texture = ExtResource("1_bkp1e")
+flip_h = true

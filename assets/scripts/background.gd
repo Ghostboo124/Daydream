@@ -1,26 +1,29 @@
 extends Node2D
 
 # Loads Config
-var config := utils._load_config()
+var config = utils.config
 
-# Scroll Speed
-var scroll_speed: float = config.get_value("background", "scroll_speed", 0)
+# Defines Variables
+var scroll_speed: float = config.get_value("background", "scroll_speed", 4.0)
 
-# Loads Background
 @onready var bg: Sprite2D = $sprite
 @onready var hitbox: StaticBody2D = $hitbox
 
-# Gets Width & Height
-var base_x: float = bg.global_position.x
+var base_x: float
+var current_x: float
 
-var width: float = bg.texture.get_width()
-var height: float = bg.texture.get_height()
+var width: float
 
-# Update Func
 func _process(delta: float) -> void:
-	bg.global_position.x -= scroll_speed
+	current_x -= scroll_speed
 	
-	if bg.global_position.x <= -width:
-		bg.global_position.x = width
+	if current_x <= -width:
+		current_x = width * delta
 	
-	hitbox.global_position.x = bg.global_position.x
+	bg.global_position.x = current_x
+	hitbox.global_position.x = current_x 
+
+func _ready() -> void:
+	base_x = bg.global_position.x
+	current_x = 0
+	width = bg.texture.get_width()

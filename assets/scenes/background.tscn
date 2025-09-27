@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cglov6eujlkyq"]
+[gd_scene load_steps=3 format=3 uid="uid://cglov6eujlkyq"]
 
 [ext_resource type="Texture2D" uid="uid://c28l7qf3gvidx" path="res://assets/images/stringstar_assets/example.png" id="1_wfag3"]
+[ext_resource type="Script" uid="uid://cdrmfdydwjh1j" path="res://assets/scripts/background.gd" id="1_wi2cc"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="BackgroundLeft" type="Node2D" parent="."]
 position = Vector2(0, -3)
+script = ExtResource("1_wi2cc")
 
 [node name="sprite" type="Sprite2D" parent="BackgroundLeft"]
 texture = ExtResource("1_wfag3")
@@ -20,6 +22,7 @@ polygon = PackedVector2Array(-481, -258, -170, -262, -156, -310, -144, -364, -81
 
 [node name="BackgroundRight" type="Node2D" parent="."]
 position = Vector2(1728, 0)
+script = ExtResource("1_wi2cc")
 
 [node name="sprite" type="Sprite2D" parent="BackgroundRight"]
 texture = ExtResource("1_wfag3")

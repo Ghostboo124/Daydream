@@ -1,46 +1,63 @@
-[gd_scene load_steps=6 format=3 uid="uid://y504m2qhy6u4"]
+[gd_scene load_steps=5 format=3 uid="uid://bcrev62qwch8s"]
 
 [ext_resource type="Texture2D" uid="uid://c28l7qf3gvidx" path="res://assets/stringstar_assets/example.png" id="1_bkp1e"]
-[ext_resource type="Script" uid="uid://db5jg2er75k0k" path="res://scripts/scrolling_background/background_setup.gd" id="1_y0upk"]
+[ext_resource type="Script" uid="uid://c1e37a4qam6jx" path="res://scripts/background.gd" id="1_y0upk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0upk"]
-size = Vector2(186, 47.5)
+size = Vector2(191.5, 47.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jougr"]
-size = Vector2(181, 41)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkp1e"]
+size = Vector2(214, 51)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbsqf"]
-size = Vector2(302, 199.5)
+[node name="Node2D" type="Node2D"]
 
-[node name="Background" type="Node2D"]
+[node name="BackgroundLeft" type="Node2D" parent="."]
 script = ExtResource("1_y0upk")
-scroll_speed = null
 
-[node name="BackgroundTile" type="Sprite2D" parent="."]
+[node name="sprite" type="Sprite2D" parent="BackgroundLeft"]
+position = Vector2(0, 1)
 texture = ExtResource("1_bkp1e")
+flip_h = true
 
-[node name="BackgroundTileHitbox" type="StaticBody2D" parent="."]
+[node name="hitbox" type="StaticBody2D" parent="BackgroundLeft"]
 
-[node name="Tree1" type="CollisionPolygon2D" parent="BackgroundTileHitbox"]
-polygon = PackedVector2Array(-850, 124, -801, 94, -804, 30, -836, -21, -857, -73, -859, -127, -864, -156, -841, -179, -850, -221, -811, -223, -770, -228, -735, -237, -714, -228, -653, -202, -622, -175, -630, -133, -629, -99, -634, -85, -668, -71, -691, -62, -707, -51, -723, -37, -735, -25, -744, 5, -760, 48, -758, 53, -747, 67, -731, 98, -739, 117)
+[node name="Ground" type="CollisionPolygon2D" parent="BackgroundLeft/hitbox"]
+polygon = PackedVector2Array(-862, 418, -645, 408, -527, 350, -425, 381, -291, 400, -104, 412, -71, 509, 161, 509, 210, 416, 582, 408, 580, 168, 578, 127, 863, 129, 861, 541, -862, 535)
 
-[node name="Tree2" type="CollisionPolygon2D" parent="BackgroundTileHitbox"]
-polygon = PackedVector2Array(321, 377, 425, 214, 418, 129, 408, 98, 374, 83, 319, 37, 273, 20, 238, 5, 181, -50, 170, -83, 137, -135, 177, -204, 238, -273, 273, -305, 317, -328, 406, -331, 486, -322, 659, -322, 624, -306, 636, -257, 656, -221, 665, -181, 675, -142, 645, -81, 617, -50, 569, -32, 546, -16, 523, 94, 500, 122, 487, 186, 496, 246, 509, 269, 535, 296, 555, 328, 576, 360, 578, 374, 521, 358, 482, 344, 436, 351, 390, 372)
+[node name="Tree1" type="CollisionPolygon2D" parent="BackgroundLeft/hitbox"]
+polygon = PackedVector2Array(-314, 381, -404, 235, -398, 120, -316, 73, -267, -21, -215, -50, -164, -69, -139, -171, -219, -245, -248, -295, -320, -332, -388, -346, -449, -352, -548, -354, -577, -321, -647, -237, -682, -161, -675, -104, -612, -69, -565, -46, -505, 51, -497, 112, -507, 202, -521, 260, -527, 307, -556, 340)
 
-[node name="Platform1" type="CollisionShape2D" parent="BackgroundTileHitbox"]
-position = Vector2(-481, 148.25)
+[node name="Tree2" type="CollisionPolygon2D" parent="BackgroundLeft/hitbox"]
+polygon = PackedVector2Array(832, 129, 797, 57, 840, 5, 861, -73, 877, -120, 869, -161, 843, -198, 803, -217, 695, -249, 666, -231, 645, -175, 635, -126, 641, -101, 686, -81, 725, -58, 734, 14, 732, 57, 725, 118)
+
+[node name="Platform" type="CollisionShape2D" parent="BackgroundLeft/hitbox"]
+position = Vector2(482.75, 150.75)
 shape = SubResource("RectangleShape2D_y0upk")
 
-[node name="Platform2" type="CollisionShape2D" parent="BackgroundTileHitbox"]
-position = Vector2(-387.5, -233.5)
-shape = SubResource("RectangleShape2D_jougr")
+[node name="SkyIsland" type="CollisionPolygon2D" parent="BackgroundLeft/hitbox"]
+polygon = PackedVector2Array(475, -223, 477, -256, 202, -264, 130, -373, 64, -342, 52, -325, 31, -307, 13, -282, 2, -73, 292, -50, 300, -233)
 
-[node name="Ground" type="CollisionPolygon2D" parent="BackgroundTileHitbox"]
-polygon = PackedVector2Array(-864, 128, -583, 126, -579, 314, -537, 344, -519, 381, -517, 392, -517, 406, -503, 415, -193, 416, -184, 494, 66, 501, 101, 409, 314, 383, 399, 377, 454, 353, 661, 384, 727, 408, 854, 411, 854, 535, -868, 532)
+[node name="BackgroundRight" type="Node2D" parent="."]
+position = Vector2(1728, 0)
+script = ExtResource("1_y0upk")
 
-[node name="SkyPlatform1" type="CollisionShape2D" parent="BackgroundTileHitbox"]
-position = Vector2(-147, -157.75)
-shape = SubResource("RectangleShape2D_cbsqf")
+[node name="sprite" type="Sprite2D" parent="BackgroundRight"]
+texture = ExtResource("1_bkp1e")
 
-[node name="SkyPlatformRock1" type="CollisionPolygon2D" parent="BackgroundTileHitbox"]
-polygon = PackedVector2Array(-21, -271, -19, -301, -60, -315, -69, -322, -83, -347, -83, -379, -117, -384, -145, -360, -147, -321, -141, -299, -147, -285, -175, -280, -180, -271)
+[node name="hitbox" type="StaticBody2D" parent="BackgroundRight"]
+
+[node name="Ground" type="CollisionPolygon2D" parent="BackgroundRight/hitbox"]
+polygon = PackedVector2Array(-577, 131, -867, 134, -869, 535, 864, 537, 857, 417, 768, 419, 727, 417, 638, 393, 579, 386, 562, 372, 480, 367, 430, 370, 374, 384, 317, 393, 261, 393, 173, 393, 136, 398, 103, 438, 88, 483, 72, 502, 46, 509, -4, 506, -53, 499, -93, 495, -110, 495, -133, 495, -159, 490, -180, 447, -211, 407, -312, 400, -390, 400, -466, 400, -494, 398, -510, 384, -527, 360, -551, 318, -569, 282, -569, 186)
+
+[node name="Tree1" type="CollisionPolygon2D" parent="BackgroundRight/hitbox"]
+polygon = PackedVector2Array(-728, 112, -751, 71, -762, 27, -737, -14, -693, -53, -633, -67, -618, -90, -622, -135, -645, -191, -677, -234, -764, -237, -842, -225, -874, -186, -870, -121, -870, -50, -870, -43, -829, -37, -819, -9, -810, 28, -808, 60, -854, 120)
+
+[node name="Tree2" type="CollisionPolygon2D" parent="BackgroundRight/hitbox"]
+polygon = PackedVector2Array(317, 388, 423, 220, 423, 175, 405, 104, 358, 76, 274, 25, 234, -4, 175, -28, 110, -87, 184, -241, 235, -282, 301, -344, 374, -365, 475, -354, 510, -354, 549, -328, 600, -262, 654, -206, 680, -168, 703, -126, 604, -60, 572, -43, 540, -27, 508, 32, 496, 78, 492, 184, 510, 218, 526, 253, 556, 344, 583, 367, 553, 372, 501, 351, 459, 349)
+
+[node name="Platform" type="CollisionShape2D" parent="BackgroundRight/hitbox"]
+position = Vector2(-492, 137.5)
+shape = SubResource("RectangleShape2D_bkp1e")
+
+[node name="SkyIsland" type="CollisionPolygon2D" parent="BackgroundRight/hitbox"]
+polygon = PackedVector2Array(-1, -56, 1, -259, -36, -280, -20, -313, -51, -329, -65, -347, -92, -374, -125, -370, -149, -323, -164, -296, -182, -276, -192, -265, -478, -255, -474, -224, -303, -208, -295, -66)

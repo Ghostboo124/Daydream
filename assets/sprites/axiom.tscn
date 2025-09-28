@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://v8c32wklrnw3"]
+[gd_scene load_steps=84 format=3 uid="uid://v8c32wklrnw3"]
 
 [ext_resource type="Texture2D" uid="uid://3x7vp5jjb34f" path="res://assets/images/little_axiom/Attack 1.png" id="1_n0exr"]
 [ext_resource type="Texture2D" uid="uid://br3qqhc6b7lnx" path="res://assets/images/little_axiom/Attack 2.png" id="1_wrfuk"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bnro3yr76f0he" path="res://assets/images/little_axiom/Run.png" id="3_tybni"]
 [ext_resource type="Texture2D" uid="uid://g3q5cgpahs0b" path="res://assets/images/little_axiom/Death.png" id="4_jvov6"]
 [ext_resource type="Texture2D" uid="uid://dr77ttfputuf6" path="res://assets/images/little_axiom/Hurt.png" id="5_duk5s"]
+[ext_resource type="PackedScene" uid="uid://7ut860mrsgn7" path="res://assets/sprites/Hitbox.tscn" id="8_2jbh2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mt1f"]
 atlas = ExtResource("1_wrfuk")
@@ -557,18 +558,21 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tyosp"]
-radius = 51.0
-height = 170.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvov6"]
+radius = 48.0
+height = 168.0
 
 [node name="Axiom" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_3mt1f")
-animation = &"idle"
-frame_progress = 0.10466128
+animation = &"run"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
-shape = SubResource("CapsuleShape2D_tyosp")
+[node name="Hitbox" parent="." instance=ExtResource("8_2jbh2")]
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(-2, -11)
+shape = SubResource("CapsuleShape2D_jvov6")
+
+[editable path="Hitbox"]

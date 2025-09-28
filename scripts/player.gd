@@ -13,6 +13,8 @@ extends CharacterBody2D
 @export var health: int = 10
 @export var chaos: int = 4
 @export var is_dead: bool = false
+@export var gravity: int = 2500
+var is_jumping: bool = false
 var input_vector: Vector2 = Vector2.ZERO
 var screen_size
 var frame_counter: int = 0
@@ -34,30 +36,41 @@ func _physics_process(delta: float) -> void:
 	frame_counter += 1
 	if is_dead:
 		return
+
 	animation_tree.set("parameters/StateMachine/MoveState/State/2/blend_position", 0)
 	animation_tree.set("parameters/StateMachine/MoveState/State/blend_position", 0)
 
+	screen_size = get_viewport_rect().size
+	velocity = Vector2.ZERO
+	input_vector = Vector2.ZERO
+
 	if state == "MoveState":
-		screen_size = get_viewport_rect().size
-		velocity = Vector2.ZERO
-		input_vector = Vector2.ZERO
-		
 		if Input.is_action_pressed("right"):
+			animation_tree.set("parameters/StateMachine/MoveState/State/2/2/blend_position", 1)
 			animation_tree.set("parameters/StateMachine/AttackState/blend_position", 1)
 			input_vector.x += 1
 		if Input.is_action_pressed("left"):
+			animation_tree.set("parameters/StateMachine/MoveState/State/2/2/blend_position", -1)
 			animation_tree.set("parameters/StateMachine/AttackState/blend_position", -1)
 			input_vector.x -= 1
+		if Input.is_action_pressed("Jump"):
+			is_jumping = true
 		
 		if Input.is_action_pressed("SliceAttack"):
-			if get_global_mouse_position().x > global_position.x:
-				playback.travel("AttackState")
-			elif get_global_mouse_position().x < global_position.x:
-				playback.travel("AttackState")
+			playback.travel("AttackState")
 
 		animation_tree.set("parameters/StateMachine/MoveState/State/blend_position", input_vector.x)
 
 		velocity = input_vector * speed
-		move_and_slide()
 	elif state == "AttackState":
 		pass
+	velocity = handle_physics(delta, velocity)
+	move_and_slide()
+
+func handle_physics(delta: float, velocity: Vector2) -> Vector2:
+	if is_jumping:
+		velocity.y -= speed
+		is_jumping = false
+		return velocity
+	velocity.y += gravity * (speed / 25)  * delta
+	return velocity

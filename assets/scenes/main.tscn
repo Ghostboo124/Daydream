@@ -8,13 +8,13 @@
 [node name="Background" parent="." instance=ExtResource("1_mr7gh")]
 
 [node name="Player" parent="." instance=ExtResource("2_kpi06")]
-position = Vector2(-6, 124)
-strength = null
-speed = null
-regen = null
-health = null
-chaos = null
+position = Vector2(-528, 15)
+metadata/_edit_group_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-2, 118)
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(4, -6)
 zoom = Vector2(1.2, 1.2)
+limit_left = -860
+limit_top = -545
+limit_right = 2590
+limit_bottom = 530

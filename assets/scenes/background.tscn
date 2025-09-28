@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cglov6eujlkyq"]
+[gd_scene load_steps=4 format=3 uid="uid://cglov6eujlkyq"]
 
 [ext_resource type="Texture2D" uid="uid://dsb6xama4lbbh" path="res://assets/images/Background.png" id="1_wfag3"]
 [ext_resource type="Script" uid="uid://cdrmfdydwjh1j" path="res://scripts/background.gd" id="1_wi2cc"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi2cc"]
+size = Vector2(192, 37)
+
 [node name="Node2D" type="Node2D"]
+
+[node name="Edgehitbox" type="StaticBody2D" parent="."]
+position = Vector2(0, -3)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Edgehitbox"]
+build_mode = 1
+polygon = PackedVector2Array(-869, 549, -864, -544, 2583, -538, 2589, 546)
 
 [node name="BackgroundLeft" type="Node2D" parent="."]
 position = Vector2(0, -3)
@@ -15,10 +25,20 @@ texture = ExtResource("1_wfag3")
 [node name="hitbox" type="StaticBody2D" parent="BackgroundLeft"]
 
 [node name="ground" type="CollisionPolygon2D" parent="BackgroundLeft/hitbox"]
-polygon = PackedVector2Array(-861, 131, -392, 129, -399, 155, -566, 160, -566, 400, -194, 417, -198, 492, 70, 502, 127, 398, 327, 386, 459, 365, 658, 381, 747, 400, 858, 405, 860, 535, -870, 537)
+polygon = PackedVector2Array(-861, 131, -572, 134, -566, 400, -194, 417, -198, 492, 70, 502, 127, 398, 327, 386, 459, 365, 658, 381, 747, 400, 858, 405, 860, 535, -870, 537)
 
 [node name="skyisland" type="CollisionPolygon2D" parent="BackgroundLeft/hitbox"]
-polygon = PackedVector2Array(-481, -258, -170, -262, -156, -310, -144, -364, -81, -378, -62, -333, -55, -305, -26, -307, -7, -279, 2, -251, 2, -67, -286, -64, -290, -227, -472, -222)
+polygon = PackedVector2Array(-170, -251, -150, -294, -143, -353, -132, -360, -125, -378, -91, -378, -73, -353, -71, -330, -64, -304, -59, -317, -31, -317, -19, -305, -18, -279, -18, -264, -7, -263, -1, -258, -1, -245, 2, -67, -286, -64, -287, -252)
+
+[node name="PlatfromL" type="CollisionShape2D" parent="BackgroundLeft/hitbox"]
+position = Vector2(-480, 150.5)
+shape = SubResource("RectangleShape2D_wi2cc")
+one_way_collision = true
+
+[node name="PlatfromSkyL" type="CollisionShape2D" parent="BackgroundLeft/hitbox"]
+position = Vector2(-384, -234)
+shape = SubResource("RectangleShape2D_wi2cc")
+one_way_collision = true
 
 [node name="BackgroundRight" type="Node2D" parent="."]
 position = Vector2(1728, 0)
@@ -31,7 +51,17 @@ flip_h = true
 [node name="hitbox" type="StaticBody2D" parent="BackgroundRight"]
 
 [node name="ground" type="CollisionPolygon2D" parent="BackgroundRight/hitbox"]
-polygon = PackedVector2Array(-859, 396, -724, 410, -549, 355, -454, 359, -304, 388, -134, 406, -68, 501, 182, 507, 197, 421, 544, 421, 583, 417, 583, 162, 398, 156, 382, 133, 870, 131, 862, 544, -871, 536)
+polygon = PackedVector2Array(-859, 396, -724, 410, -549, 355, -454, 359, -304, 388, -134, 406, -68, 501, 182, 507, 197, 421, 544, 421, 576, 414, 576, 132, 870, 131, 862, 544, -871, 536)
 
 [node name="skyisland" type="CollisionPolygon2D" parent="BackgroundRight/hitbox"]
-polygon = PackedVector2Array(-7, -68, -7, -265, 34, -267, 14, -327, 36, -331, 57, -325, 69, -346, 86, -378, 110, -378, 129, -364, 147, -335, 168, -278, 188, -263, 476, -255, 478, -228, 310, -222, 289, -62)
+polygon = PackedVector2Array(-5, -68, -5, -248, 20, -262, 19, -305, 32, -317, 65, -317, 69, -346, 86, -378, 110, -378, 132, -372, 145, -334, 151, -294, 167, -286, 188, -263, 289, -251, 289, -62)
+
+[node name="PlatfromR" type="CollisionShape2D" parent="BackgroundRight/hitbox"]
+position = Vector2(480, 150)
+shape = SubResource("RectangleShape2D_wi2cc")
+one_way_collision = true
+
+[node name="PlatfromSkyR" type="CollisionShape2D" parent="BackgroundRight/hitbox"]
+position = Vector2(384, -234)
+shape = SubResource("RectangleShape2D_wi2cc")
+one_way_collision = true

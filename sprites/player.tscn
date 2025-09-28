@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dq85wiy7ij0vl"]
+[gd_scene load_steps=37 format=3 uid="uid://dq85wiy7ij0vl"]
 
 [ext_resource type="Script" uid="uid://ddo84lhl2av7m" path="res://scripts/player.gd" id="1_olike"]
 [ext_resource type="PackedScene" uid="uid://7ut860mrsgn7" path="res://sprites/Hitbox.tscn" id="2_fnuoy"]
@@ -487,9 +487,16 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ekdci"]
 animation = &"attack_slash_right"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_617v1"]
+animation = &"attack_slash_left"
+
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_617v1"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_ekdci")
 blend_point_0/pos = 1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_617v1")
+blend_point_1/pos = -1.0
+blend_mode = 1
+sync = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ngp6"]
 animation = &"run_left"
@@ -535,12 +542,18 @@ graph_offset = Vector2(-131.70251, 21.318436)
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_31yn0"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_udifs"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k7aqk"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fnuoy"]
-states/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_617v1")
-states/BlendSpace1D/position = Vector2(476, 158)
+states/AttackState/node = SubResource("AnimationNodeBlendSpace1D_617v1")
+states/AttackState/position = Vector2(476, 182)
 states/MoveState/node = SubResource("AnimationNodeStateMachine_4ngp6")
 states/MoveState/position = Vector2(476, 100)
-transitions = ["Start", "MoveState", SubResource("AnimationNodeStateMachineTransition_31yn0")]
+transitions = ["Start", "MoveState", SubResource("AnimationNodeStateMachineTransition_31yn0"), "AttackState", "MoveState", SubResource("AnimationNodeStateMachineTransition_udifs"), "MoveState", "AttackState", SubResource("AnimationNodeStateMachineTransition_k7aqk")]
 graph_offset = Vector2(-31, 23)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_olike"]
@@ -582,7 +595,7 @@ deterministic = false
 tree_root = SubResource("AnimationNodeBlendTree_olike")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
-parameters/StateMachine/BlendSpace1D/blend_position = 0.0023828745
+parameters/StateMachine/AttackState/blend_position = -0.32644957
 parameters/StateMachine/MoveState/State/blend_position = 0.0
 parameters/StateMachine/MoveState/State/2/blend_position = 0.0
 

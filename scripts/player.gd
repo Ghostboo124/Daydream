@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/StateMachine/playback")
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var hitbox: Area2D = $Hitbox
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -17,6 +18,8 @@ var screen_size
 var frame_counter: int = 0
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area == hitbox:
+		return
 	health -= 1
 	animation_tree.set("parameters/StateMachine/MoveState/State/blend_position", 0)
 	if health == 0:
@@ -27,22 +30,34 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	animation_tree.set("parameters/StateMachine/MoveState/State/2/blend_position", -1)
 
 func _physics_process(delta: float) -> void:
+	var state: StringName = playback.get_current_node()
 	frame_counter += 1
 	if is_dead:
 		return
 	animation_tree.set("parameters/StateMachine/MoveState/State/2/blend_position", 0)
 	animation_tree.set("parameters/StateMachine/MoveState/State/blend_position", 0)
 
-	screen_size = get_viewport_rect().size
-	velocity = Vector2.ZERO
-	input_vector = Vector2.ZERO
-	
-	if Input.is_action_pressed("right"):
-		input_vector.x += 1
-	if Input.is_action_pressed("left"):
-		input_vector.x -= 1
+	if state == "MoveState":
+		screen_size = get_viewport_rect().size
+		velocity = Vector2.ZERO
+		input_vector = Vector2.ZERO
+		
+		if Input.is_action_pressed("right"):
+			animation_tree.set("parameters/StateMachine/AttackState/blend_position", 1)
+			input_vector.x += 1
+		if Input.is_action_pressed("left"):
+			animation_tree.set("parameters/StateMachine/AttackState/blend_position", -1)
+			input_vector.x -= 1
+		
+		if Input.is_action_pressed("SliceAttack"):
+			if get_global_mouse_position().x > global_position.x:
+				playback.travel("AttackState")
+			elif get_global_mouse_position().x < global_position.x:
+				playback.travel("AttackState")
 
-	animation_tree.set("parameters/StateMachine/MoveState/State/blend_position", input_vector.x)
+		animation_tree.set("parameters/StateMachine/MoveState/State/blend_position", input_vector.x)
 
-	velocity = input_vector * speed
-	move_and_slide()
+		velocity = input_vector * speed
+		move_and_slide()
+	elif state == "AttackState":
+		pass

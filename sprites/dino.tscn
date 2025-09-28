@@ -1,6 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://u030fibarjht"]
+[gd_scene load_steps=19 format=3 uid="uid://u030fibarjht"]
 
 [ext_resource type="Texture2D" uid="uid://dmej2s4evbvsf" path="res://assets/images/DinoSprites.png" id="1_46mxm"]
+[ext_resource type="Script" uid="uid://dyiteqwvkgngj" path="res://scripts/dino.gd" id="1_i6qqa"]
+[ext_resource type="PackedScene" uid="uid://7ut860mrsgn7" path="res://sprites/Hitbox.tscn" id="3_h6a7t"]
+[ext_resource type="PackedScene" uid="uid://c3uywv5onk2pu" path="res://sprites/Hurtbox.tscn" id="4_0ef7a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l37k5"]
 atlas = ExtResource("1_46mxm")
@@ -96,10 +99,18 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_46mxm"]
+radius = 48.0
+height = 168.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sdt1"]
+size = Vector2(50, 80)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tjsp0"]
 radius = 36.0
-height = 146.0
+height = 150.0
 
 [node name="Dino" type="Area2D"]
+script = ExtResource("1_i6qqa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(10, 10)
@@ -108,5 +119,21 @@ animation = &"idle"
 frame_progress = 0.21357182
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
+visible = false
+position = Vector2(-8, 5)
 shape = SubResource("CapsuleShape2D_46mxm")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_h6a7t")]
+position = Vector2(-8, 5)
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(53, -45)
+shape = SubResource("RectangleShape2D_8sdt1")
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_0ef7a")]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CapsuleShape2D_tjsp0")
+
+[editable path="Hitbox"]
+[editable path="Hurtbox"]

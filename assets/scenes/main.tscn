@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkvh23hjx35wu"]
+[gd_scene load_steps=5 format=3 uid="uid://bkvh23hjx35wu"]
 
 [ext_resource type="PackedScene" uid="uid://cglov6eujlkyq" path="res://assets/scenes/background.tscn" id="1_mr7gh"]
 [ext_resource type="PackedScene" uid="uid://dq85wiy7ij0vl" path="res://sprites/player.tscn" id="2_kpi06"]
+[ext_resource type="PackedScene" uid="uid://bqj5phljxc6ep" path="res://sprites/orc.tscn" id="3_sfrgt"]
+[ext_resource type="PackedScene" uid="uid://u030fibarjht" path="res://sprites/dino.tscn" id="4_etxf0"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_mr7gh")]
 
 [node name="Player" parent="." instance=ExtResource("2_kpi06")]
-position = Vector2(-528, 15)
+position = Vector2(-528, 58)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -18,3 +20,11 @@ limit_left = -860
 limit_top = -545
 limit_right = 2590
 limit_bottom = 530
+
+[node name="Orc" parent="." instance=ExtResource("3_sfrgt")]
+position = Vector2(236, 312)
+health = 10
+speed = 500
+
+[node name="Dino" parent="." instance=ExtResource("4_etxf0")]
+position = Vector2(590, 255)

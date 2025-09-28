@@ -1,6 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://bqj5phljxc6ep"]
+[gd_scene load_steps=43 format=3 uid="uid://bqj5phljxc6ep"]
 
+[ext_resource type="Script" uid="uid://dd53kfjx6iql1" path="res://scripts/orc.gd" id="1_j0qyf"]
 [ext_resource type="Texture2D" uid="uid://20t3fnai68nr" path="res://assets/images/Orc.png" id="1_jhbpf"]
+[ext_resource type="PackedScene" uid="uid://7ut860mrsgn7" path="res://sprites/Hitbox.tscn" id="3_2wois"]
+[ext_resource type="PackedScene" uid="uid://c3uywv5onk2pu" path="res://sprites/Hurtbox.tscn" id="4_opfh0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ymoy"]
 atlas = ExtResource("1_jhbpf")
@@ -277,7 +280,18 @@ animations = [{
 radius = 43.0
 height = 144.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvrrn"]
+radius = 41.0
+height = 82.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2wois"]
+radius = 55.0
+height = 150.0
+
 [node name="Orc" type="Area2D"]
+script = ExtResource("1_j0qyf")
+health = null
+speed = null
 
 [node name="OrcSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(10, 10)
@@ -288,3 +302,18 @@ frame_progress = 0.5268201
 [node name="OrcCollision" type="CollisionShape2D" parent="."]
 position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_of86n")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_2wois")]
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(118, 5)
+shape = SubResource("CapsuleShape2D_nvrrn")
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_opfh0")]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(4, -7)
+shape = SubResource("CapsuleShape2D_2wois")
+
+[editable path="Hitbox"]
+[editable path="Hurtbox"]

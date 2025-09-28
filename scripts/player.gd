@@ -4,13 +4,14 @@ extends CharacterBody2D
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var hitbox: Area2D = $Hitbox
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var collision: CollisionShape2D = $CollisionShape2D
 
 @export var strength: int = 1
 @export var speed: int = 500
 @export var regen: int = 1
 @export var health: int = 10
 @export var chaos: int = 4
-var is_dead: bool = false
+@export var is_dead: bool = false
 var input_vector: Vector2 = Vector2.ZERO
 var screen_size
 var frame_counter: int = 0
@@ -40,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		input_vector.x += 1
 	if Input.is_action_pressed("left"):
 		input_vector.x -= 1
-	
+
 	animation_tree.set("parameters/StateMachine/MoveState/State/blend_position", input_vector.x)
 
 	velocity = input_vector * speed

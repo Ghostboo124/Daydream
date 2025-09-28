@@ -5,9 +5,16 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.2, 1.2)
-
 [node name="Background" parent="." instance=ExtResource("1_mr7gh")]
 
 [node name="Player" parent="." instance=ExtResource("2_kpi06")]
+position = Vector2(-6, 124)
+strength = null
+speed = null
+regen = null
+health = null
+chaos = null
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-2, 118)
+zoom = Vector2(1.2, 1.2)

@@ -1,18 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbtjkvoojhyw6"]
+[gd_scene load_steps=4 format=3 uid="uid://dbtjkvoojhyw6"]
 
-[ext_resource type="Texture2D" uid="uid://dgct3s0nuq2au" path="res://assets/images/rpg_character_assets/Arrow(Projectile)/Arrow01(100x100).png" id="1_h5sj1"]
+[ext_resource type="Texture2D" uid="uid://dfl2h6hf6k1bl" path="res://assets/images/Arrow.png" id="1_h5sj1"]
+[ext_resource type="PackedScene" uid="uid://7ut860mrsgn7" path="res://assets/sprites/Hitbox.tscn" id="2_nlc35"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nlc35"]
-radius = 3.1999998
-height = 18.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i5lde"]
+radius = 21.0
+height = 98.0
 
 [node name="Arrow" type="Area2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5707964
-scale = Vector2(5, 5)
-shape = SubResource("CapsuleShape2D_nlc35")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
 texture = ExtResource("1_h5sj1")
+
+[node name="Hitbox" parent="." instance=ExtResource("2_nlc35")]
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_i5lde")
+
+[editable path="Hitbox"]
